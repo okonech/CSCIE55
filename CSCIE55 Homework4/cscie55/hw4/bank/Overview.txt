@@ -1,0 +1,36 @@
+
+Why does the NO_LOCKING test succeed for one thread and fail for 2-20 threads?
+    	The lack of synchronization is meaningless if only one thread is executing, this is only important when multiple
+    	threads are concurrently modifying/accessing the same data. One thread might read a value, add to that value, and 
+    	in the meantime another thread writes to the value, so thread1 or thread2's write may be overwritten, for example.
+    	In single threaded environments this cannot happen because only one process modifies the data.
+    	With any number of threads greater than 1, the lack of locking becomes an issue, as in the above example.
+    
+How do you explain the change in performance for LOCK_BANK as threads increase from 1 to 20.
+		In the bank locking implementation, the entire bank object is locked by a thread making a transaction, so all other
+		threads must wait for it to finish before processing themselves. The Bank object becomes a progressively larger 
+		bottleneck as the threads compete for the lock on the Bank object. Since no computing happens in this implementation
+		without the Bank object (other than basic logic checks no non-synchronized processing is performed) this implementation
+		becomes less efficient with more threads. Although threads have fairly little overhead, synchronizing an object between many
+		threads can have significant overhead. Only one thread at a time can have access to the locking routine to acquire a lock.
+		Since there is no performance benefit to more threads, but increasing overhead when adding more threads, the transctions/msec
+		decreases as more threads are added to this implementation.
+
+How does the performance of LOCK_BANK compare to that of LOCK_ACCOUNTS? How do you explain this?
+		Locking accounts starts off slower than bank locking, but performance improves as more threads are added, whereas in the bank locking
+		implementation more threads result in degraded performance. Two threads in the account locking implementation are already faster than
+		the single threaded bank locking.
+		The reason is the two calls to synchronized required in account locking, the thread must lock both Account objects, where the bank locking
+		only needs to lock one object, and this additional locking overhead makes the single thread case slower. 
+		Unlike bank locking, an account locking thread only locks the two accounts required to perform the transaction, leaving the other accounts
+		available to the other threads for concurrent processing. Even with only two threads, this more than makes up for the overhead of two calls
+		to synchronized when compared to bank locking.
+		This is also due to a high ratio of accounts/threads, since accounts are randomly selected for transactions, the more accounts there are the smaller
+		the chance a selected account is locked by another thread. Assuming the same number of threads but a very low number of accounts, the performance of
+		the account locking would degrade worse than bank locking with higher numbers of threads, due to more threads waiting to lock the same accounts
+		and the higher overhead of two synchronized calls.
+		Example with 2 accounts: Bank locking, 20 threads = 5650.245509 t/msec, Account locking, 20 threads = 3797.501397 t/msec
+		The higher the ratio of accounts to threads, the faster account locking with run, with diminishing returns.
+		This shouldn't majorly affect performance, but the accounts are not actually simultaneously locked in the account locking implementation.
+		The synchronized blocks are separate, so the lock on fromAccount is lost before the lock on toAccount is acquired. This means another thread can lock
+		fromAccount slightly faster, before the lock on toAccount is acquired and before the requested amount is deposited into toAccount's balance.

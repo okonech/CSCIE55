@@ -1,0 +1,35 @@
+HW3
+
+Elevator will move 1 floor per call to move() and will unload passengers if they are going to the current floor.
+The logic for this is:
+Change direction if necessary. 
+	Now direction changes immediately when top or bottom floor is hit, this was needed to
+pick up passengers from bottom floor
+Move 1 floor in the current direction
+Board Passengers from Floor objects (communicating through Building) and store in an ArrayList of LinkedHashSet sets.
+Update structures based on the current floor and elevator capacity
+
+For ease of coding, I did not use offset 0 in the arrays so that the floor (starts at 1) can be passed in as an index directly.
+
+Although there is no explicit HW restriction on additional public methods unlike the previous HWs, 
+the following methods in Floor are protected instead:
+	addResidentPassenger
+	getWaitingUpPassengers
+	setWaitingUpPassengers
+	getWaitingDownPassengers
+	setWaitingDownPassengers
+
+I needed some way for Elevator to tell Floor to remove/update it's sets of passengers.
+
+The addResidentPassenger was not completely necessary, I could instead handle a passenger going to the current floor passed into waitForElevator
+by adding them to the residentPassengers set, and I do. However, this would cause the waitForElevator method to be poorly named,
+why would a passenger who already arrived/ doesn't want to move floors be waiting for the elevator? 
+So I created this method to clearly add resident passengers to the floor.
+
+Through evaluating the test cases I noticed resident passengers could decide to move later, so code was added in waitForElevator to ensure
+passengers did not belong to more than one set at a time in Floor.
+
+Finally, the elevatorFull test checks that the first 10 created passengers are boarded first, so a HashSet could not be used, as order is not
+preserved. Although an ArrayList could be used instead, this could have led to data integrity issues (allows duplicates in data, but duplicates
+would be removed when converting to a set for the HW requirements) so I used a LinkedHashSet, which is less efficient but both maintains
+unique objects and maintains insertion order.

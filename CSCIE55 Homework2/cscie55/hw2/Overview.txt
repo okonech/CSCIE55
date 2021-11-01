@@ -1,0 +1,13 @@
+HW2
+
+Elevator will move 1 floor per call to move() and will unload passengers if they are going to the current floor.
+The logic for this is:
+Change direction if necessary
+Move 1 floor in the current direction
+Board passengers from Floor objects (communicating through Building) and assume they are bound for ground floor.
+Update arrays based on the current floor (add,release passengers)
+
+For ease of coding, I did not use offset 0 in the arrays so that the floor (starts at 1) can be passed in as an index directly.
+
+Due to the HW restriction on additional public methods, Floor's boardPassenger() is protected instead. I needed some way for Elevator to
+tell Floor to reduce the count of waiting passengers.

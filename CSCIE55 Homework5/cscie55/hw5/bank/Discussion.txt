@@ -1,0 +1,19 @@
+
+It is significantly faster to execute the command outside of the monitor.
+Executing commands inside the monitor, regardless of the number of CommandExecutionThreads, is similar in performance to a
+single threaded process. This is due to the synchronization on the commandQueue, if one thread retains the monitor lock
+during the entire process of removing a command and the command's execution, there is no concurrency because no other threads can
+access the commandQueue until the first thread releases the monitor lock.
+
+If commands are executed outside the monitor however, the bottleneck becomes just accessing the commandQueue to add and remove commands.
+This is a very quick process, and the commands are then executed concurrently in the threads, as the command execution is the 
+large majority of the work, with it's own synchronization on accounts, etc.
+
+The simulated network delay of 1 millisecond is a very significant delay. With it, the simulations average 3 transactions per millisecond
+with commands executed inside the monitor, and 13 transactions per millisecond when executed outside of the monitor. However, without the simulated 
+network delay, the commands executed inside the monitor are at 1780 transactions per millisecond and 1920 transactions per millisecond when
+commands are executed outside of the monitor.
+
+Interestingly, when more threads are added for the server to use by increasing SERVER_THREADS, the overall performance goes down.
+30 server threads = 1200 and 1355 txns/msec for commands executed inside and outside the monitor, respectively. When the simulated network delay
+is reintroduced, with 30 server threads, the performance increases massively to 20 txns/msec for commands executed outside of the monitor.

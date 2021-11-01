@@ -1,0 +1,15 @@
+NO_LOCKING, 1 -- OK: 7669.351436 transactions/msec
+NO_LOCKING, 2 -- BROKEN: 10459.235494 transactions/msec	Expected total balances: 100000	Actual: 53004
+NO_LOCKING, 5 -- BROKEN: 11357.561927 transactions/msec	Expected total balances: 100000	Actual: 29034
+NO_LOCKING, 10 -- BROKEN: 14805.530234 transactions/msec	Expected total balances: 100000	Actual: 43536
+NO_LOCKING, 20 -- BROKEN: 14464.708357 transactions/msec	Expected total balances: 100000	Actual: 45194
+LOCK_BANK, 1 -- OK: 7721.897588 transactions/msec
+LOCK_BANK, 2 -- OK: 4375.479218 transactions/msec
+LOCK_BANK, 5 -- OK: 3942.257807 transactions/msec
+LOCK_BANK, 10 -- OK: 3980.333731 transactions/msec
+LOCK_BANK, 20 -- OK: 3936.869333 transactions/msec
+LOCK_ACCOUNTS, 1 -- OK: 6640.691725 transactions/msec
+LOCK_ACCOUNTS, 2 -- OK: 8472.491995 transactions/msec
+LOCK_ACCOUNTS, 5 -- OK: 12088.835582 transactions/msec
+LOCK_ACCOUNTS, 10 -- OK: 13154.985962 transactions/msec
+LOCK_ACCOUNTS, 20 -- OK: 13384.496016 transactions/msec

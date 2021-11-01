@@ -1,0 +1,9 @@
+(from XML output)
+
+name="testSetup" classname="cscie55.hw5.Tester" time="0.024"
+name="testCorrectness" classname="cscie55.hw5.Tester" time="0.746"
+name="measurePerformanceOfCommandInsideAndOutsideMonitor" classname="cscie55.hw5.Tester" time="9.026"
+
+measurePerformanceOfCommandInsideAndOutsideMonitor:
+Command INSIDE monitor:  3.398352 txns/msec
+Command OUTSIDE monitor: 13.299982 txns/msec

@@ -1,0 +1,18 @@
+HW1 Elevator
+
+To run: "java -classpath hw1.jar cscie55.hw1.elevatortest.ElevatorTest"
+
+Elevator will move 1 floor per call to move() and will unload passengers if they are going to the current floor.
+The logic for this is:
+Change direction if necessary
+Move 1 floor in the current direction
+Update arrays based on the current floor
+
+For ease of coding, I did not use offset 0 in the arrays so that the floor (starts at 1) can be passed in as an index directly.
+I added a static max floors variable referenced in ElevatorTest so the # of floors can be changed in the one place in Elevator.
+
+The main method sets up the 3 necessary passengers, prints the initial state and runs a for loop MAX_FLOORS*2-1 times so that the elevator moves all the way up and down.
+
+Since move() only moves 1 floor at a time,
+it doesn't really use the array tracking which floors require a stop for anything (it updates the array but it doesn't affect code execution).
+It needs to since ElevatorTest needs to print the current state on each floor after every move, which would not be possible if a single move() moved floors until a stop was required.
