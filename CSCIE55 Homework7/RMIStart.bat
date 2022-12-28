@@ -1,0 +1,1 @@
+rmiregistry -J-Dcp='C:\cygwin64\home\Alex\cscie55\HW7\cscie55\hw7\'

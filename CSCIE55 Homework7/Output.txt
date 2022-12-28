@@ -1,0 +1,51 @@
+rmiregistry: none
+
+LinkAnalyzerImpl:
+	LinkAnalyzerImpl ready
+
+LinkAnalyzerNodeImpl 1:
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.1
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.1\2009-11-01.json: 140 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.1\2009-11-02.json: 18886 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.1\2009-11-03.json: 827 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.1\2009-11-04.json: 25497 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.1\2009-11-05.json: 407 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.1\2009-11-06.json: 292 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.1\2009-11-07.json: 209 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.1\2009-11-08.json: 84 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.1\2009-11-09.json: 407 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.1\2009-11-10.json: 463 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.1\2009-11-11.json: 4646 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.1\2009-11-12.json: 4603 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.1\2009-11-13.json: 1068 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.1\2009-11-14.json: 129 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.1\2009-11-15.json: 87 Links added
+	LinkAnalyzerNodeImpl ready
+	
+LinkAnalyzerNodeImpl 2:
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.2
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.2\2009-11-16.json: 229 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.2\2009-11-17.json: 349 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.2\2009-11-18.json: 399 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.2\2009-11-19.json: 318 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.2\2009-11-20.json: 271 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.2\2009-11-21.json: 383 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.2\2009-11-22.json: 47 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.2\2009-11-23.json: 306 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.2\2009-11-24.json: 244 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.2\2009-11-25.json: 307 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.2\2009-11-26.json: 287 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.2\2009-11-27.json: 214 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.2\2009-11-28.json: 200 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.2\2009-11-29.json: 50 Links added
+	C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.2\2009-11-30.json: 314 Links added
+	LinkAnalyzerNodeImpl ready
+	
+Tester (xml format):
+	project="CSCIE55 Homework7" tests="3" started="3" failures="0" errors="0" ignored="0">
+  	<testsuite name="cscie55.hw7.Tester" time="0.07">
+    <testcase name="testLinksByTags" time="0.039"/>
+    <testcase name="testLinksByTime" time="0.015"/>
+    <testcase name="testLinksByURL" time="0.016"/>
+	
+	

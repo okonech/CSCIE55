@@ -1,0 +1,38 @@
+
+The Links are stored in HashSet objects, so they are not searched very efficiently.
+This could have been implemented better, but one of the answers on the Piazza was 
+that it was very unlikely to result in a point reduction.
+
+For this project, the executed files are the compiled .class files, rather than the .jar file being executed.
+
+By far the longest amount of time on this project was spent debugging the file paths.
+This is because I was trying to run java and RMI from Cygwin, where it expects unix paths
+but java wants Windows paths.
+This became much worse with the introduction of the shell scripts, where paths are very inconsistent.
+
+For example, depending on how it's run,
+String currentDir = System.getProperty("user.dir"); could return:
+
+C:\cygwin64\home\Alex\cscie55\HW7
+\home\Alex\cscie55\HW7
+/home/Alex/cscie55/HW7
+
+so I gave up on cygwin and shell scripts.
+I confirmed the program worked in Eclipse using the Run As arguments to LinkAnalyzerNodeImpl:
+C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.1
+C:\cygwin64\home\Alex\cscie55\HW7\cscie55\links\files.2
+
+for 2 separate instances.
+
+Then I confirmed it worked with the batch scripts with Windows command line.
+
+To run, run from command line in order:
+
+RMIStart.bat
+LinkAnalyzerStart.bat
+LinkAnalyzerNodeStart1.bat
+LinkAnalyzerNodeStart2.bat
+
+(order doesn't matter for LinkAnalyzerNodeStart batch files)
+
+I included the shell files from previous attempts, but they do not work. Only the batch files should be used.
